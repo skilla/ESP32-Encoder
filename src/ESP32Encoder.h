@@ -25,9 +25,9 @@
         bool                   button;
     } Encoder_internal_state_t;
 
-    class EspEncoder {
+    class ESP32Encoder {
     public:
-        EspEncoder(uint8_t pin1, uint8_t pin2, uint8_t button) {
+        ESP32Encoder(uint8_t pin1, uint8_t pin2, uint8_t button) {
             pinMode(pin1, INPUT_PULLUP);
             pinMode(pin2, INPUT_PULLUP);
             pinMode(button, INPUT_PULLUP);
@@ -90,7 +90,7 @@
     public:
         static Encoder_internal_state_t * interruptArgs[ENCODER_ARGLIST_SIZE];
 
-        // update() is not meant to be called from outside Encoder,
+        // update() is not meant to be called from outside ESP32Encoder,
         // but it is public to allow static interrupt routines.
         // DO NOT call update() directly from sketches.
         static void update(Encoder_internal_state_t *arg) {
